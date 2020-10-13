@@ -82,8 +82,8 @@ class TestPalabra:
 
 
 
-class TestPartida:
-    def test_iniciar_partida(self):
+class TestJuego:
+    def test_iniciar_juego(self):
         # Arrange
         j = Juego()
         esperado = '*******'
@@ -100,3 +100,35 @@ class TestPartida:
         resultado = j.obtenerPalabra() 
         # Assert
         assert resultado in esperado
+    
+    def test_cantidad_inicial_vidas(self):
+        # Arrange
+        j = Juego()
+        esperado = 7
+        # Act
+        resultado = j.getVidasActuales() 
+        # Assert
+        assert resultado == esperado
+    
+    def test_quitar_vida(self):
+        # Arrange
+        j = Juego()
+        esperado = 6
+        # Act
+        j.quitaVida()
+        resultado = j.getVidasActuales() 
+        # Assert
+        assert resultado == esperado
+    
+    def test_arriesga_letra(self):
+        # Arrange
+        j = Juego()
+        esperado = 6
+        # Act
+        j.iniciar()
+        j.arriesgarLetra('z')
+        resultado = j.getVidasActuales() 
+        # Assert
+        assert resultado == esperado
+    
+
