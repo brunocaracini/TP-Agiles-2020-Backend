@@ -10,6 +10,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/', methods=['GET'])
 def hello():
-    return 'Hello!'
+    return 'CI Test!'
 
 app.run(host='0.0.0.0', port=port, debug=True)
