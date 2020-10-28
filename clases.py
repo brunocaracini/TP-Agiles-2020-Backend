@@ -1,4 +1,5 @@
 import random
+import enum
 
 class Palabra():
 
@@ -29,12 +30,18 @@ class Palabra():
 				estado += '*'
 		return estado
 
-
-
+"""
+   PERDIDA = 1
+   GANADA = 2
+   CURSO = 3
+"""
 
 class Juego():
  
-	def __init__(self): 
+	def __init__(self, nombreJugador):
+		self.nombreJugador = nombreJugador
+		self.estadoPartida = 3
+		self.puntaje = 0 
 		self.palabraActual = None
 		self.cantInicialVidas = 7
 		self.cantActualVidas = self.cantInicialVidas
@@ -51,15 +58,27 @@ class Juego():
 		return self.cantActualVidas
 	
 	def quitaVida(self):
+		if self.cantActualVidas == 1:
+			self.estadoPartida = 1
 		self.cantActualVidas -= 1
 	
 	def arriesgarLetra(self, letra):
 		res = self.palabraActual.validaLetra(letra)
 		if not res:
 			self.quitaVida()
+
+		if self.palabraActual.getPalabra() == self.palabraActual.getEstado():
+			self.estadoPartida = 2
+
 		return res
-	
-			
+
+	def getEstado(self):
+		return {
+			'palabra': self.palabraActual.getEstado(),
+			'estadoPartida': self.estadoPartida,
+			'nombreJugador': self.nombreJugador,
+			'cantActualVidas': self.cantActualVidas
+		}
 
 
 	
