@@ -1,0 +1,20 @@
+from clases import Juego
+
+class Controller:
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def iniciar_partida(self, nombre):
+        j = Juego(nombre)
+        j.iniciar()
+        return j
+
+    @classmethod
+    def enviar_letra(self, letra, j):
+        j.arriesgarLetra(letra)
+        return j
+
+
+    

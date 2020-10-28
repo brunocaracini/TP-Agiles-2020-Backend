@@ -85,7 +85,7 @@ class TestPalabra:
 class TestJuego:
     def test_iniciar_juego(self):
         # Arrange
-        j = Juego()
+        j = Juego('Kent Beck')
         esperado = '*******'
         # Act
         resultado = j.iniciar() 
@@ -94,7 +94,7 @@ class TestJuego:
 
     def test_obtener_palabra_valida(self):
         # Arrange
-        j = Juego()
+        j = Juego('Alistair Cockburn')
         esperado = ['PRUEBA1', 'PRUEBA2', 'PRUEBA3']
         # Act
         resultado = j.obtenerPalabra() 
@@ -103,7 +103,7 @@ class TestJuego:
     
     def test_cantidad_inicial_vidas(self):
         # Arrange
-        j = Juego()
+        j = Juego('Martin Fowler')
         esperado = 7
         # Act
         resultado = j.getVidasActuales() 
@@ -112,7 +112,7 @@ class TestJuego:
     
     def test_quitar_vida(self):
         # Arrange
-        j = Juego()
+        j = Juego('Dave Thomas')
         esperado = 6
         # Act
         j.quitaVida()
@@ -122,7 +122,7 @@ class TestJuego:
     
     def test_arriesga_letra(self):
         # Arrange
-        j = Juego()
+        j = Juego('Ron Jeffries')
         esperado = 6
         # Act
         j.iniciar()

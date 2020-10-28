@@ -3,7 +3,7 @@ import json
 from flask import Flask, request, session, jsonify
 from flask_session import Session 
 from flask_cors import CORS, cross_origin
-from clases import Juego
+from controller import Controller
 
 port = int(os.environ.get("PORT", 5000))
 
@@ -17,22 +17,14 @@ Session(app)
 
 @app.route('/iniciar', methods=['POST'])
 def iniciar_partida():
-    nombre = json.loads(request.data)['nombre']
-    j = Juego(nombre)
-    j.iniciar()
-
-    session['juego'] = j 
-
-    return jsonify(j.getEstado())
+    session['juego'] = Controller.iniciar_partida(json.loads(request.data)['nombre'])
+    return jsonify(session['juego'].getEstado())
 
 
 @app.route('/enviar-letra', methods=['POST'])
 def enviar_letra():
-    j = session.get('juego')
-    letra = str(json.loads(request.data)['letra'])
-
-    j.arriesgarLetra(letra)
-
+    j = Controller.enviar_letra(str(json.loads(request.data)['letra']), session.get('juego'))
+    session['juego'] = j
     return jsonify(j.getEstado())
 
 
