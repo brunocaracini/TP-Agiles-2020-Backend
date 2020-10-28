@@ -8,10 +8,12 @@ from controller import Controller
 port = int(os.environ.get("PORT", 5000))
 
 app = Flask(__name__)
-cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
+
+cors = CORS(app, origins=["http://localhost:4200"], headers=['Content-Type'], expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
+
 
 Session(app)
 
