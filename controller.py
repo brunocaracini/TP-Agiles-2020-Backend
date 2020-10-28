@@ -16,5 +16,8 @@ class Controller:
         j.arriesgarLetra(letra)
         return j
 
-
+    @classmethod
+    def enviar_palabra(self, palabra, j):
+        j.arriesgarPalabra(palabra)
+        return j
     

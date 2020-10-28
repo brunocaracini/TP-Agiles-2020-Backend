@@ -27,6 +27,11 @@ def enviar_letra():
     session['juego'] = j
     return jsonify(j.getEstado())
 
+@app.route('/enviar-palabra', methods=['POST'])
+def enviar_palabra():
+    j = Controller.enviar_palabra(str(json.loads(request.data)['palabra']), session.get('juego'))
+    return jsonify(j.getEstado())
+
 
 
 
