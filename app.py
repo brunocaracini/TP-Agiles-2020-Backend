@@ -10,6 +10,7 @@ port = int(os.environ.get("PORT", 5000))
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_COOKIE_SECURE'] = True
 
 CORS(app, supports_credentials=True)
 Session(app)
