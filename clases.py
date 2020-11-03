@@ -1,5 +1,6 @@
 import random
 import enum
+from dbcontroller import DBController
 
 class Palabra():
 
@@ -46,7 +47,8 @@ class Juego():
 		return self.palabraActual.getEstado()
 
 	def obtenerPalabra(self):
-		palabras = ['PRUEBA1', 'PRUEBA2', 'PRUEBA3']
+		DBController.openConn()
+		palabras = DBController.getAll()
 		return random.choice(palabras)
 	
 	def getVidasActuales(self):

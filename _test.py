@@ -1,5 +1,6 @@
 import pytest
 from clases import Juego, Palabra
+from dbcontroller import DBController
 
 class TestPalabra:
     def test_valida_letra_a_en_palabra_casa(self):
@@ -86,16 +87,17 @@ class TestJuego:
     def test_iniciar_juego(self):
         # Arrange
         j = Juego('Kent Beck')
-        esperado = '*******'
         # Act
-        resultado = j.iniciar() 
+        resultado = j.iniciar()
+        esperado = '*' * len(j.palabraActual.palabra) 
         # Assert
         assert esperado == resultado
 
     def test_obtener_palabra_valida(self):
         # Arrange
         j = Juego('Alistair Cockburn')
-        esperado = ['PRUEBA1', 'PRUEBA2', 'PRUEBA3']
+        DBController.openConn()
+        esperado = DBController.getAll()
         # Act
         resultado = j.obtenerPalabra() 
         # Assert
@@ -130,5 +132,3 @@ class TestJuego:
         resultado = j.getVidasActuales() 
         # Assert
         assert resultado == esperado
-    
-
