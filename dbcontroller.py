@@ -8,7 +8,7 @@ class DBController():
 
     @classmethod
     def openConn(self):
-        client = pymongo.MongoClient("mongodb+srv://test:1234@agiles-db.jvicy.mongodb.net/<dbname>?retryWrites=true&w=majority")
+        client = pymongo.MongoClient("mongodb+srv://test:1234@agiles-db.jvicy.mongodb.net/Ahorcado?retryWrites=true&w=majority")
         self.mydb = client["Ahorcado"]
         self.mycol = self.mydb["Palabras"]
 
