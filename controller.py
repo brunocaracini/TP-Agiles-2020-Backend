@@ -22,4 +22,4 @@ class Controller:
     def enviar_palabra(self, palabra, j):
         j.arriesgarPalabra(palabra)
         return j
-    
+

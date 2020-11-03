@@ -1,6 +1,7 @@
 import pytest
 from clases import Juego, Palabra
 from dbcontroller import DBController
+import random
 
 class TestPalabra:
     def test_valida_letra_a_en_palabra_casa(self):
@@ -128,7 +129,8 @@ class TestJuego:
         esperado = 6
         # Act
         j.iniciar()
-        j.arriesgarLetra('z')
+        letra = random.choice(j.palabraActual.getLetrasNotInPalabra())
+        j.arriesgarLetra(letra)
         resultado = j.getVidasActuales() 
         # Assert
         assert resultado == esperado
