@@ -88,9 +88,9 @@ class TestJuego:
     def test_iniciar_juego(self):
         # Arrange
         j = Juego('Kent Beck')
+        esperado = '****'
         # Act
-        resultado = j.iniciar()
-        esperado = '*' * len(j.palabraActual.palabra) 
+        resultado = j.iniciar('CASA')
         # Assert
         assert esperado == resultado
 
@@ -128,9 +128,8 @@ class TestJuego:
         j = Juego('Ron Jeffries')
         esperado = 6
         # Act
-        j.iniciar()
-        letra = random.choice(j.palabraActual.getLetrasNotInPalabra())
-        j.arriesgarLetra(letra)
+        j.iniciar('CASA')
+        j.arriesgarLetra('Z')
         resultado = j.getVidasActuales() 
         # Assert
         assert resultado == esperado

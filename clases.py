@@ -50,8 +50,11 @@ class Juego():
 		self.cantInicialVidas = 7
 		self.cantActualVidas = self.cantInicialVidas
 
-	def iniciar(self):
-		self.palabraActual = Palabra(self.obtenerPalabra())
+	def iniciar(self, palabra):
+		if palabra == None:
+			self.palabraActual = Palabra(self.obtenerPalabra())
+		else:
+			self.palabraActual = Palabra(palabra)
 		return self.palabraActual.getEstado()
 
 	def obtenerPalabra(self):

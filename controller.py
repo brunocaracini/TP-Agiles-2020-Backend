@@ -10,7 +10,7 @@ class Controller:
     @classmethod
     def iniciar_partida(self, nombre):
         j = Juego(nombre)
-        j.iniciar()
+        j.iniciar(None)
         return j
 
     @classmethod
