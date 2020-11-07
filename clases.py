@@ -1,6 +1,4 @@
-import random
 import enum
-from dbcontroller import DBController
 
 class Palabra():
 
@@ -51,16 +49,8 @@ class Juego():
 		self.cantActualVidas = self.cantInicialVidas
 
 	def iniciar(self, palabra):
-		if palabra == None:
-			self.palabraActual = Palabra(self.obtenerPalabra())
-		else:
-			self.palabraActual = Palabra(palabra)
+		self.palabraActual = Palabra(palabra)
 		return self.palabraActual.getEstado()
-
-	def obtenerPalabra(self):
-		DBController.openConn()
-		palabras = DBController.getAll()
-		return random.choice(palabras)
 	
 	def getVidasActuales(self):
 		return self.cantActualVidas

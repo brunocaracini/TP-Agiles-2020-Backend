@@ -1,6 +1,7 @@
 from clases import Juego
 import pymongo
-
+from dbcontroller import DBController
+import random
 
 class Controller:
 
@@ -10,7 +11,7 @@ class Controller:
     @classmethod
     def iniciar_partida(self, nombre):
         j = Juego(nombre)
-        j.iniciar(None)
+        j.iniciar(self.obtenerPalabra())
         return j
 
     @classmethod
@@ -23,3 +24,8 @@ class Controller:
         j.arriesgarPalabra(palabra)
         return j
 
+    @classmethod
+    def obtenerPalabra(self):
+        DBController.openConn()
+        palabras = DBController.getAll()
+        return random.choice(palabras)

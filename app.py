@@ -2,16 +2,15 @@ import os
 import json
 from flask import Flask, request, session, jsonify
 from flask_session import Session 
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from controller import Controller
 
 ##### CONFIG #####
 port = int(os.environ.get("PORT", 5000))
 
 app = Flask(__name__)
-app.secret_key = 'super secret key'
+app.secret_key = 'SecretKeyForSigningCookies'
 app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_COOKIE_SECURE'] = True
 
 CORS(app, supports_credentials=True)
 Session(app)
@@ -24,19 +23,22 @@ def test():
 
 @app.route('/api/iniciar', methods=['POST'])
 def iniciar_partida():
-    session['juego'] = Controller.iniciar_partida(json.loads(request.data)['nombre'])
+    nombreJugador = json.loads(request.data)['nombre']
+    session['juego'] = Controller.iniciar_partida(nombreJugador)
     return jsonify(session['juego'].getEstado())
 
 
 @app.route('/api/enviar-letra', methods=['POST'])
 def enviar_letra():
-    j = Controller.enviar_letra(str(json.loads(request.data)['letra']), session.get('juego'))
+    letra = str(json.loads(request.data)['letra'])
+    j = Controller.enviar_letra(letra, session.get('juego'))
     session['juego'] = j
     return jsonify(j.getEstado())
 
 @app.route('/api/enviar-palabra', methods=['POST'])
 def enviar_palabra():
-    j = Controller.enviar_palabra(str(json.loads(request.data)['palabra']), session.get('juego'))
+    palabra = str(json.loads(request.data)['palabra'])
+    j = Controller.enviar_palabra(palabra, session.get('juego'))
     return jsonify(j.getEstado())
 
 

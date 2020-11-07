@@ -94,15 +94,6 @@ class TestJuego:
         # Assert
         assert esperado == resultado
 
-    def test_obtener_palabra_valida(self):
-        # Arrange
-        j = Juego('Alistair Cockburn')
-        DBController.openConn()
-        esperado = DBController.getAll()
-        # Act
-        resultado = j.obtenerPalabra() 
-        # Assert
-        assert resultado in esperado
     
     def test_cantidad_inicial_vidas(self):
         # Arrange
@@ -133,3 +124,13 @@ class TestJuego:
         resultado = j.getVidasActuales() 
         # Assert
         assert resultado == esperado
+
+    def test_estado_partida(self):
+        # Arrange
+        j = Juego('Ron Jeffries')
+        esperado = 4
+        # Act
+        j.iniciar('CASA')
+        resultado = j.getEstado() 
+        # Assert
+        assert len(resultado['palabra']) == esperado
