@@ -28,14 +28,6 @@ class Palabra():
 			else:
 				estado += '*'
 		return estado
-	
-	def getLetrasNotInPalabra(self):
-		letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-		letrasNotInPalabra = []
-		for letra in letras:
-			if letra not in self.palabra:
-				letrasNotInPalabra.append(letra)
-		return letrasNotInPalabra
 
 
 class Juego():
