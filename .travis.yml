@@ -4,6 +4,7 @@ dist: xenial
 language: python
 script:
 - python -m pytest
+- pytest --cov=./
 local-dir: dist/pattern-atlas
 deploy:
   provider: heroku
