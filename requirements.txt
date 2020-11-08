@@ -5,3 +5,5 @@ gunicorn==19.9.0
 Flask-Session==0.3.2
 pymongo==3.11.0
 dnspython==1.16.0
+pytest-cov==2.7.1
+coverage==5.3
