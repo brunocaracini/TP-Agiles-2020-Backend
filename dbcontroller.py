@@ -13,13 +13,7 @@ class DBController():
         self.mycol = self.mydb["Palabras"]
 
     @classmethod
-    def getAll(self):
-        palabras = []
-        for x in self.mycol.find():
-            palabras.append(x['palabra'].upper())
-        return palabras
-    
-    @classmethod
-    def closeConn(self):
-        self.mydb = None
-        self.mycol = None
+    def getRandomWord(self):
+        self.openConn()
+        for x in self.mycol.aggregate([{ "$sample": { "size": 1 } }]):
+            return x['palabra'].upper()
