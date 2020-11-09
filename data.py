@@ -15,5 +15,5 @@ class Data():
     @classmethod
     def getRandomWord(self, dificultad):
         self.openConn()
-        for x in self.mycol.aggregate([{ "$sample": { "size": 1 }, "dificultad": dificultad}]):
+        for x in self.mycol.aggregate([ { "$match": { "dificultad": dificultad }}, { "$sample": { "size": 1 }}]):
             return x['palabra'].upper()

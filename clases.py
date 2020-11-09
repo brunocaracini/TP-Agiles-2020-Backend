@@ -3,7 +3,7 @@ from data import Data
 
 class Palabra():
 
-	def __init__(self, p, puntajeDificultad=0): 
+	def __init__(self, p): 
 		self.palabra = p.upper()
 		self.letrasArriesgadas = []
 		self.puntajeDificultad = self.getPuntajeDificultad()
