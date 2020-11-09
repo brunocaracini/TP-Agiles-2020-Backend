@@ -79,9 +79,35 @@ class TestPalabra:
         # Act
         resultado = p.validaPalabra('helicoptero')
         # Assert
+        assert esperado == resultado
+    
+    def test_valida_dificultad_facil(self):
+        # Arrange
+        p = Palabra('agua')
+        esperado = 'FACIL'
+        # Act
+        resultado = p.getDificultad()
+        # Assert
         assert esperado == resultado  
+    
+    def test_valida_dificultad_media(self):
+        # Arrange
+        p = Palabra('aprender')
+        esperado = 'MEDIA'
+        # Act
+        resultado = p.getDificultad()
+        # Assert
+        assert esperado == resultado
 
-
+    def test_valida_dificultad_dificil(self):
+        # Arrange
+        p = Palabra('dificultad')
+        esperado = 'DIFICIL'
+        # Act
+        resultado = p.getDificultad()
+        # Assert
+        assert esperado == resultado
+    
 
 class TestJuego:
     def test_iniciar_juego(self):
