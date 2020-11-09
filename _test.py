@@ -1,6 +1,5 @@
 import pytest
 from clases import Juego, Palabra
-from dbcontroller import DBController
 import random
 
 class TestPalabra:

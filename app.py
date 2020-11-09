@@ -24,7 +24,8 @@ def test():
 @app.route('/api/iniciar', methods=['POST'])
 def iniciar_partida():
     nombreJugador = json.loads(request.data)['nombre']
-    session['juego'] = Controller.iniciar_partida(nombreJugador)
+    dificultad = json.loads(request.data)['dificultad']
+    session['juego'] = Controller.iniciar_partida(nombreJugador, dificultad)
     return jsonify(session['juego'].getEstado())
 
 

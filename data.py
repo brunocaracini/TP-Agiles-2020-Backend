@@ -1,6 +1,6 @@
 import pymongo
 
-class DBController():
+class Data():
 
     def __init__(self):
         self.mydb = None
@@ -13,7 +13,7 @@ class DBController():
         self.mycol = self.mydb["Palabras"]
 
     @classmethod
-    def getRandomWord(self):
+    def getRandomWord(self, dificultad):
         self.openConn()
-        for x in self.mycol.aggregate([{ "$sample": { "size": 1 } }]):
+        for x in self.mycol.aggregate([{ "$sample": { "size": 1 }, "dificultad": dificultad}]):
             return x['palabra'].upper()

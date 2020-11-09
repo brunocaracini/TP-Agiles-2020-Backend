@@ -1,10 +1,13 @@
 import enum
+from data import Data
 
 class Palabra():
 
-	def __init__(self, p): 
+	def __init__(self, p, puntajeDificultad=0): 
 		self.palabra = p.upper()
 		self.letrasArriesgadas = []
+		self.puntajeDificultad = self.getPuntajeDificultad()
+		self.dificultad = self.getDificultad()
 
 	def getPalabra(self):
 		return self.palabra
@@ -29,7 +32,22 @@ class Palabra():
 				estado += '*'
 		return estado
 
-
+	def getPuntajeDificultad(self):
+		letters = 'EAOSRNIDLCTUMPBGVYQHFZJÑXKW'
+		vowels = set('AEIOU')
+		word = self.getPalabra()
+		unique = set(word)
+		positions = sum(letters.index(c) for c in word)
+		return len(word) * len(unique) * (7 - len(unique & vowels)) * positions
+	
+	def getDificultad(self):
+		if self.puntajeDificultad <= 2000:
+			return 'FACIL'
+		elif self.puntajeDificultad > 2000 and self.puntajeDificultad <15000:
+			return 'MEDIA'
+		else:
+			return 'DIFICIL'
+	
 class Juego():
  
 	def __init__(self, nombreJugador):
@@ -39,9 +57,14 @@ class Juego():
 		self.palabraActual = None
 		self.cantInicialVidas = 7
 		self.cantActualVidas = self.cantInicialVidas
+		self.dificultad = None
 
-	def iniciar(self, palabra):
-		self.palabraActual = Palabra(palabra)
+	def iniciar(self, palabra, dificultad='MEDIA'):
+		if palabra == None:
+			self.palabraActual = Palabra(Data.getRandomWord(dificultad))
+		else:
+			self.palabraActual = Palabra(palabra)
+		self.dificultad = dificultad
 		return self.palabraActual.getEstado()
 	
 	def getVidasActuales(self):
@@ -74,7 +97,8 @@ class Juego():
 			'estadoPartida': self.estadoPartida,
 			'nombreJugador': self.nombreJugador,
 			'cantActualVidas': self.cantActualVidas,
-			'letrasArriesgadas': self.palabraActual.getLetrasArriesgadas()
+			'letrasArriesgadas': self.palabraActual.getLetrasArriesgadas(),
+			'dificultad':self.dificultad
 		}
 
 

@@ -1,5 +1,4 @@
 from clases import Juego
-from dbcontroller import DBController
 
 class Controller:
 
@@ -7,9 +6,9 @@ class Controller:
         pass
 
     @classmethod
-    def iniciar_partida(self, nombre):
+    def iniciar_partida(self, nombre, dificultad):
         j = Juego(nombre)
-        j.iniciar(DBController.getRandomWord())
+        j.iniciar(None, dificultad)
         return j
 
     @classmethod
