@@ -23,14 +23,17 @@ class Palabra():
 	def validaPalabra(self, palabra):		 
 		return palabra.upper() == self.palabra
 
-	def getEstado(self):
-		estado = ''
-		for letra in self.palabra:
-			if letra in self.letrasArriesgadas:
-				estado += letra
-			else:
-				estado += '*'
-		return estado
+	def getEstado(self, estado_partida='CURSO'):
+		if estado_partida != 'CURSO':
+			estado = self.getPalabra()
+		else:
+			estado = ''
+			for letra in self.palabra:
+				if letra in self.letrasArriesgadas:
+					estado += letra
+				else:
+					estado += '*'
+			return estado
 
 	def getPuntajeDificultad(self):
 		letters = 'EAOSRNIDLCTUMPBGVYQHFZJÑXKW'
@@ -73,6 +76,7 @@ class Juego():
 	def quitaVida(self):
 		if self.cantActualVidas == 1:
 			self.estadoPartida = 'PERDIDA'
+			self.palabraActual.getEstado(self.estadoPartida)
 		self.cantActualVidas -= 1
 	
 	def arriesgarLetra(self, letra):
@@ -90,22 +94,22 @@ class Juego():
 	def arriesgarPalabra(self, palabra):
 		if self.palabraActual.validaPalabra(palabra):
 			self.estadoPartida = 'GANADA'
-			self.calcularPuntaje()
+			self.calcularPuntaje(500)
 			Data.actualizaRanking(self.puntaje, self.nombreJugador)
 		else:
 			self.quitaVida()
 
-	def calcularPuntaje(self):
+	def calcularPuntaje(self,bonus=0):
 		if self.cantActualVidas == self.cantInicialVidas:
 			cantidad_fallos = 0.9
 		else:
 			cantidad_fallos = self.cantInicialVidas - self.cantActualVidas
 		if self.dificultad == 'FACIL':
-			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*100*self.cantActualVidas,0))
+			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*100*self.cantActualVidas + bonus,0))
 		elif self.dificultad == 'MEDIA':
-			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*125*self.cantActualVidas,0))
+			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*125*self.cantActualVidas + bonus,0))
 		else:
-			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*150*self.cantActualVidas,0))
+			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*150*self.cantActualVidas + bonus,0))
 
 	def getEstado(self):
 		return {
