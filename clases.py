@@ -76,7 +76,6 @@ class Juego():
 	def quitaVida(self):
 		if self.cantActualVidas == 1:
 			self.estadoPartida = 'PERDIDA'
-			self.palabraActual.getEstado(self.estadoPartida)
 		self.cantActualVidas -= 1
 	
 	def arriesgarLetra(self, letra):
@@ -113,7 +112,7 @@ class Juego():
 
 	def getEstado(self):
 		return {
-			'palabra': self.palabraActual.getEstado(),
+			'palabra': self.palabraActual.getEstado(self.estadoPartida),
 			'estadoPartida': self.estadoPartida,
 			'nombreJugador': self.nombreJugador,
 			'cantActualVidas': self.cantActualVidas,
