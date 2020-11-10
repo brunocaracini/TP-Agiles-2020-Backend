@@ -33,7 +33,7 @@ class Palabra():
 					estado += letra
 				else:
 					estado += '*'
-			return estado
+		return estado
 
 	def getPuntajeDificultad(self):
 		letters = 'EAOSRNIDLCTUMPBGVYQHFZJÑXKW'
@@ -120,9 +120,4 @@ class Juego():
 			'dificultad':self.dificultad,
 			'puntaje': self.puntaje
 		}
-
-
-	
-	
-
 
