@@ -82,14 +82,30 @@ class Juego():
 
 		if self.palabraActual.getPalabra() == self.palabraActual.getEstado():
 			self.estadoPartida = 'GANADA'
+			self.calcularPuntaje()
+			Data.actualizaRanking(self.puntaje, self.nombreJugador)
 
 		return res
 
 	def arriesgarPalabra(self, palabra):
 		if self.palabraActual.validaPalabra(palabra):
 			self.estadoPartida = 'GANADA'
+			self.calcularPuntaje()
+			Data.actualizaRanking(self.puntaje, self.nombreJugador)
 		else:
 			self.quitaVida()
+
+	def calcularPuntaje(self):
+		if self.cantActualVidas == self.cantInicialVidas:
+			cantidad_fallos = 0.9
+		else:
+			cantidad_fallos = self.cantInicialVidas - self.cantActualVidas
+		if self.dificultad == 'FACIL':
+			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*100*self.cantActualVidas,0))
+		elif self.dificultad == 'MEDIA':
+			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*125*self.cantActualVidas,0))
+		else:
+			self.puntaje = int(round((len(self.palabraActual.getPalabra())/cantidad_fallos)*150*self.cantActualVidas,0))
 
 	def getEstado(self):
 		return {
@@ -98,7 +114,8 @@ class Juego():
 			'nombreJugador': self.nombreJugador,
 			'cantActualVidas': self.cantActualVidas,
 			'letrasArriesgadas': self.palabraActual.getLetrasArriesgadas(),
-			'dificultad':self.dificultad
+			'dificultad':self.dificultad,
+			'puntaje': self.puntaje
 		}
 
 

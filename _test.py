@@ -159,3 +159,38 @@ class TestJuego:
         resultado = j.getEstado() 
         # Assert
         assert len(resultado['palabra']) == esperado
+
+    def test_puntaje_partida_dificultad_facil(self):
+        #Arrange
+        j = Juego('Alistair Cockburn')
+        esperado = 5833
+        # Act
+        j.iniciar('agiles')
+        j.calcularPuntaje()
+        resultado = j.puntaje
+        # Assert
+        assert resultado == esperado
+    
+    def test_puntaje_partida_dificultad_media(self):
+        #Arrange
+        j = Juego('Alistair Cockburn')
+        esperado = 7778
+        # Act
+        j.iniciar('aprender')
+        j.calcularPuntaje()
+        resultado = j.puntaje
+        # Assert
+        assert resultado == esperado
+    
+    def test_puntaje_partida_dificultad_dificil(self):
+        #Arrange
+        j = Juego('Alistair Cockburn')
+        esperado = 9722
+        # Act
+        j.iniciar('dificultad')
+        j.calcularPuntaje()
+        resultado = j.puntaje
+        # Assert
+        assert resultado == esperado
+
+

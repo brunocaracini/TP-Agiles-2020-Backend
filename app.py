@@ -42,7 +42,8 @@ def enviar_palabra():
     j = Controller.enviar_palabra(palabra, session.get('juego'))
     return jsonify(j.getEstado())
 
-
-
+@app.route('/api/ver-ranking', methods=['POST'])
+def ver_rankig():
+    return jsonify(Controller.get_ranking())
 
 app.run(host='0.0.0.0', port=port, debug=True)

@@ -1,4 +1,5 @@
 from clases import Juego
+from data import Data
 
 class Controller:
 
@@ -20,3 +21,8 @@ class Controller:
     def enviar_palabra(self, palabra, j):
         j.arriesgarPalabra(palabra)
         return j
+    
+    @classmethod
+    def get_ranking(self):
+        return Data.getRanking()
+
