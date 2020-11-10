@@ -25,7 +25,7 @@ class Palabra():
 
 	def getEstado(self, estado_partida='CURSO'):
 		if estado_partida != 'CURSO':
-			estado = self.getPalabra()
+			estado = self.palabra
 		else:
 			estado = ''
 			for letra in self.palabra:
