@@ -38,6 +38,6 @@ class Data():
 
     @classmethod
     def actualizaRanking(self, puntaje, nombreJugador):
-        self.openConnRanking
+        self.openConnRanking()
         mydict = {"nombre": nombreJugador, "puntaje": puntaje}
         self.mycol.insert_one(mydict)
