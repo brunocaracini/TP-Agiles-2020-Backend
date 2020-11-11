@@ -19,7 +19,7 @@ Ahorcado que permite jugar recreando las clásicas temrinales de juegos Arcade, 
 <h2> Entorno de Desarrollo del Backend y Funcionamiento </h2>
 
 El Backend de este Ahorcado fue desarrollado en Flask, que es un framework minimalista de Python que permite crear aplicaciones web rápidamente y con un mínimo número de líneas de código. Para comunicarse con el frontend, se crearon rutas (endpoints), los cuales responden ante un POST con un JSON que contiene la información requerida.
-Para el almacenamiento de datos se utilizó MongoDB, con su correspondiente librería de Python, PyMongo. A su vez, se hosteó la BD en Atlas para poder acceder a ella de forma Remota.
+Para el almacenamiento de datos se utilizó MongoDB, con su correspondiente librería de Python, PyMongo. A su vez, se hosteó la BD en Atlas para poder acceder a ella de forma remota.
 
 <h2> Unit Testing </h2>
 
