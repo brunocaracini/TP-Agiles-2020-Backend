@@ -33,4 +33,4 @@ Se utilizó la librería Pytest para llevar a cabo los Test Unitarios a lo largo
 
 <h2> Host, Puesta en Producción y CI Server</h2>
 
-Se utilizó Heroku para hostear el backend de la aplicación y ponerla en producción, ya que además de ofrecer un servicio gratuito, tiene soporte para trabajar con Servidores de Integración Continua (CI Servers). En este sentido, se utilizó Travis como servidor CI para llevar a cabo las pruebas de Unit Testing, y para gestionar los deploys hacia Heroku en base al resultado obtenido en estos tests.
+Se utilizó Heroku para hostear el backend de la aplicación y ponerla en producción, ya que además de ofrecer un servicio gratuito, brinda soporte para trabajar con Servidores de Integración Continua (CI Servers). En este sentido, se utilizó Travis como servidor CI para llevar a cabo las pruebas de Unit Testing, y para gestionar los deploys hacia Heroku en base al resultado obtenido en estos tests.
