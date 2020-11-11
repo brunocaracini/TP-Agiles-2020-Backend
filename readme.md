@@ -9,12 +9,18 @@ Este Ahorcado fue realizado como trabajo práctico integrador de la asignatura M
 
 <h2> Descripción del Sistema </h2>
 
-Ahorcado que permite jugar recreando las clásicas temrinales de juegos Arcade, permitiendo al usuario seleccionar una dificultad, un alias, y guardar el puntaje obtenido en la partida en caso de ganar.
+Ahorcado que permite jugar recreando las clásicas temrinales de juegos Arcade, permitiendo al usuario seleccionar una dificultad, un alias, y guardar el puntaje obtenido en la partida en caso de ganar para participar de un Ranking.
 
 <h2> Datos de Grupo de Trabajo </h2>
 
 - Caracini,‌ ‌Bruno‌ ‌Tomás‌ ‌(43719)‌ ‌-‌ ‌‌bruno98980@gmail.com <br/>
 - García,‌ ‌Santiago ‌(43685)‌ ‌-‌ ‌‌santiago.garcia181@gmail.com <br/>
+
+<h2> Metodología de Trabajo </h2>
+
+Se utilizaron metodologías ágiles para llevar a cabo el desarrollo de este trabajo, entre las cuales se destaca SCRUM, Story Mapping y User Stories. Se utilizó Trello para como tablero principal para gestionar el estado del proyecto, y registrar los Sprints.
+
+[Enlace al Tablero](https://trello.com/b/yMS3pSL3/tp-%C3%A1giles-story-mapping-grupo-7-caracini-y-garc%C3%ADa)
 
 <h2> Entorno de Desarrollo del Backend y Funcionamiento </h2>
 
