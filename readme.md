@@ -18,7 +18,7 @@ Ahorcado que permite jugar recreando las clásicas temrinales de juegos Arcade, 
 
 <h2> Metodología de Trabajo </h2>
 
-Se utilizaron metodologías ágiles para llevar a cabo el desarrollo de este trabajo, entre las cuales se destaca SCRUM, Story Mapping y User Stories. Se utilizó Trello para como tablero principal para gestionar el estado del proyecto, y registrar los Sprints.
+Se utilizaron metodologías ágiles para llevar a cabo el desarrollo de este trabajo, entre las cuales se destacan SCRUM, Kanban, Story Mapping y User Stories. Se utilizó Trello para como tablero principal para gestionar el estado del proyecto, y registrar los Sprints.
 
 [Enlace al Tablero](https://trello.com/b/yMS3pSL3/tp-%C3%A1giles-story-mapping-grupo-7-caracini-y-garc%C3%ADa)
 
