@@ -18,6 +18,4 @@ after_success:
   #Envía estadisticas a CodeCov
   - bash <(curl -s https://codecov.io/bash)
   #Ejecuta una build en el FrontEntd
-  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh
-  - chmod +x trigger.sh
-  - ./trigger.sh santiagogarcia97 TP-Agiles-2020-Frontend master $TRAVIS_ACCESS_TOKEN 
+  - sh trigger-travis.sh santiagogarcia97 TP-Agiles-2020-Frontend $TRAVIS_ACCESS_TOKEN
