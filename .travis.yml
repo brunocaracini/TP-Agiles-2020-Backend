@@ -20,4 +20,4 @@ after_success:
   #
   - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh
   - chmod +x trigger.sh
-  - ./trigger.sh santiagogarcia97 downstream master $TRAVIS_ACCESS_TOKEN 
+  - ./trigger.sh santiagogarcia97 TP-Agiles-2020-Frontend master $TRAVIS_ACCESS_TOKEN 
