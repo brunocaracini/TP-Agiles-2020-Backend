@@ -17,3 +17,7 @@ deploy:
 after_success:
   #Envía estadisticas a CodeCov
   - bash <(curl -s https://codecov.io/bash)
+  #
+  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh
+  - chmod +x trigger.sh
+  - ./trigger.sh santiagogarcia97 downstream master $TRAVIS_ACCESS_TOKEN 
